@@ -50,14 +50,17 @@
                         </tr>
                     </thead>
                     <body>
-                        <tr>
-                            <td>1x Big Mac</td>
-                            <td>5.99</td>
+                        <tr v-for="product in products">
+                            <template v-if="product.active">
+                                <th>{{ product.name }} x {{ product.quantity }}</th>
+                                <th>{{ (product.price * product.quantity).toFixed(2) }}</th>
+
+                            </template>
                         </tr>
                         
                         <tr>
                             <th>Total</th>
-                            <th>5.99</th>
+                            <th>0.00</th>
                         </tr>
                     </body>
                 </table>
